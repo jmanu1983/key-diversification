@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Virtual environment
+.venv/
+venv/
+
+# Logs
+*.log
+
+# Old versions (only latest version is tracked)
+Diversification.py
+Diversification_v2.py
+Diversification_v3.py
+Test_Div.py
+Test_Div copy.py
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
