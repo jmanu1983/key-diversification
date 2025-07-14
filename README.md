@@ -1,30 +1,30 @@
-# Key Diversification Tool
+# Outil de diversification de clés
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
 ![PyCryptodome](https://img.shields.io/badge/Crypto-AES%2FCMAC-red)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-An **AES/CMAC key diversification** tool with a tkinter GUI, implementing the NXP AN10922 specification for MIFARE DESFire key diversification. Used in access control systems to derive unique card keys from a master key.
+Outil de **diversification de clés AES/CMAC** avec interface graphique tkinter, implémentant la spécification NXP AN10922 pour la diversification des clés MIFARE DESFire. Utilisé dans les systèmes de contrôle d'accès pour dériver des clés carte uniques à partir d'une clé maître.
 
-## How It Works
+## Fonctionnement
 
-The tool computes a diversified AES-128 key using:
+L'outil calcule une clé AES-128 diversifiée en utilisant :
 
-1. **Input**: UID + Application ID + Fixed data + Master Key (EMK)
-2. **Process**: Prepends constant `0x01`, applies CMAC padding, computes AES-CMAC
-3. **Output**: 128-bit diversified key unique to the card
+1. **Entrée** : UID + Application ID + Données fixes + Clé maître (EMK)
+2. **Traitement** : Ajout de la constante `0x01`, application du padding CMAC, calcul AES-CMAC
+3. **Sortie** : Clé diversifiée de 128 bits, unique à la carte
 
 ```
-Diversified Key = AES-CMAC(EMK, 0x01 || UID || APPID_DYNAMIC || FIX)
+Clé diversifiée = AES-CMAC(EMK, 0x01 || UID || APPID_DYNAMIC || FIX)
 ```
 
-## Tech Stack
+## Stack technique
 
-| Component | Technology |
-|-----------|-----------|
-| Language | Python 3.9+ |
-| Cryptography | PyCryptodome (AES, CMAC) |
-| GUI | tkinter |
+| Composant | Technologie |
+|-----------|------------|
+| Langage | Python 3.9+ |
+| Cryptographie | PyCryptodome (AES, CMAC) |
+| Interface | tkinter |
 
 ## Installation
 
@@ -35,37 +35,37 @@ cd key-diversification
 pip install -r requirements.txt
 ```
 
-## Usage
+## Utilisation
 
 ```bash
 python Diversification_v4.py
 ```
 
-The GUI will open with the following fields:
+L'interface s'ouvre avec les champs suivants :
 
-| Field | Description | Example |
+| Champ | Description | Exemple |
 |-------|------------|---------|
-| UID | Card unique identifier (hex) | `04A23BC1D52E80` |
-| APPID_DYNAMIC | Application ID (hex) | `F54100` |
-| FIX | Fixed diversification data (hex) | `4E585020416275` |
-| EMK | Encryption Master Key (hex) | `00112233445566778899AABBCCDDEEFF` |
+| UID | Identifiant unique de la carte (hex) | `04A23BC1D52E80` |
+| APPID_DYNAMIC | Identifiant d'application (hex) | `F54100` |
+| FIX | Données fixes de diversification (hex) | `4E585020416275` |
+| EMK | Clé maître de chiffrement (hex) | `00112233445566778899AABBCCDDEEFF` |
 
-Click **Diversify** to compute the diversified key.
+Cliquer sur **Diversifier** pour calculer la clé diversifiée.
 
-## Project Structure
+## Structure du projet
 
 ```
 key-diversification/
-├── Diversification_v4.py   # Main application (latest version)
-├── requirements.txt        # Python dependencies
+├── Diversification_v4.py   # Application principale (dernière version)
+├── requirements.txt        # Dépendances Python
 └── README.md
 ```
 
-## References
+## Références
 
-- [NXP AN10922 — AES Key Diversification](https://www.nxp.com/docs/en/application-note/AN10922.pdf)
-- [MIFARE DESFire EV1/EV2 documentation](https://www.nxp.com/products/rfid-nfc/mifare-hf/mifare-desfire)
+- [NXP AN10922 — Diversification de clés AES](https://www.nxp.com/docs/en/application-note/AN10922.pdf)
+- [Documentation MIFARE DESFire EV1/EV2](https://www.nxp.com/products/rfid-nfc/mifare-hf/mifare-desfire)
 
-## License
+## Licence
 
-This project is licensed under the MIT License.
+Ce projet est sous licence MIT.
